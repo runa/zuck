@@ -51,9 +51,14 @@ module Zuck
         args.each do |key|
 
           # Define list of known keys
-          self.send(:define_method, :known_keys) do
+          self.class.send(:define_method, :_known_keys) do
             args || []
           end
+
+          self.send(:define_method, :_known_keys) do
+            self.class._known_keys
+          end
+
 
           # Define getter
           self.send(:define_method, key) do
