@@ -41,7 +41,7 @@ module Zuck
 
 
     list_path   'me/adaccounts'
-    connections :ad_campaigns, :ad_sets, :ad_groups
+    connections :ad_campaigns, :ad_sets, :ad_groups, :custom_audiences
 
     def self.all(graph = Zuck.graph)
       super(graph)
