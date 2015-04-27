@@ -51,7 +51,7 @@ module Zuck
         args.each do |key|
 
           # Define list of known keys
-          self.class.send(:define_method, :_known_keys) do
+          self.define_singleton_method(:_known_keys) do
             args || []
           end
 
