@@ -74,10 +74,10 @@ module Zuck
         begin
           ret = []
           fields = _known_keys
-          graph_collection = graph.get_object(path, fields: fields.compact.join(','))
+          graph_collection = graph.get_object(path, fields: fields.compact.join(','), limit: 500)
           loop do
             ret += Array(graph_collection)
-            break if not graph_collection.paging['next']
+            break if not graph_collection.paging or not graph_collection.paging['next']
             graph_collection = graph_collection.next_page
           end
           ret
