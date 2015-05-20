@@ -25,9 +25,9 @@ module Zuck
       create_connection(graph, self.id, :users, {users: audience.to_json, hash_type: hash_type})
     end
 
-    def share(destination_account_ids:)
+    def share(custom_graph=nil, destination_account_ids:)
       destination_account_ids = Array(destination_account_ids)
-      graph.put_connections(self.id, "adaccounts", adaccounts: destination_account_ids.to_json)
+      (custom_graph || graph).put_connections(self.id, "adaccounts", adaccounts: destination_account_ids.to_json)
     end
 
   end
