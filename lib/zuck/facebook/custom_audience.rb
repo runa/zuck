@@ -15,14 +15,17 @@ module Zuck
 
 
     def emails=(emails)
+      emails = Array(emails)
       audience = emails.map{|email|
-        {email_hash: Digest::MD5.hexdigest(email)}
+        Digest::SHA256.hexdigest(email)
       }
-      add_users(audience, "md5")
+      add_users(audience, "EMAIL_SHA256")
     end
 
+    alias :<< :emails= 
+
     def add_users(audience, hash_type)
-      create_connection(graph, self.id, :users, {users: audience.to_json, hash_type: hash_type})
+      create_connection(graph, self.id, :users, payload: {data: audience, schema: hash_type}.to_json)
     end
 
     def share(custom_graph=nil, destination_account_ids:)
