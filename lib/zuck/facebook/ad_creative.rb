@@ -18,6 +18,7 @@ module Zuck
                :object_url,
                :title,
                :url_tags,
+               :multi_share_optimized,
                :id
 
     parent_object :ad_group
