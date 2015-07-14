@@ -15,7 +15,6 @@ module Zuck
                :campaign_id,
                :campaign_group_id,
                :created_time,
-               :creative_ids,
                :failed_delivery_checks,
                :name,
                :tracking_specs,
