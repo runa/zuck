@@ -8,6 +8,7 @@ module Zuck
     known_keys :id,
                :name,
                :account_id,
+               :campaign_group_id,
                :start_time,
                :updated_time,
                :created_time,
