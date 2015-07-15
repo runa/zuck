@@ -7,10 +7,6 @@ module Zuck
     # [fb docs](https://developers.facebook.com/docs/reference/ads-api/adgroup/v2.2)
     known_keys :id,
                :account_id,
-               # not available anymore to send, but still there in a response
-               # :adgroup_status,
-               # :bid_type,
-               # :bid_info,
                :conversion_specs,
                :campaign_id,
                :campaign_group_id,
