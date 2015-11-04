@@ -14,6 +14,7 @@ module Zuck
                :failed_delivery_checks,
                :name,
                :tracking_specs,
+               :adgroup_status,
                :updated_time
                # app must be whitelisted to use view_tags
                # :view_tags
@@ -26,6 +27,10 @@ module Zuck
       path = ad_set.ad_account.path
       data['campaign_id'] = ad_set.id
       super(graph, data, ad_set, path)
+    end
+
+    def status
+      data[:adgroup_status] || data[:status]
     end
 
   end
