@@ -67,14 +67,15 @@ module Zuck
       #
       # @param graph [Koala::Facebook::API] A graph with access_token
       # @param parent [<FbObject] A parent object to scope
-      def all(graph = Zuck.graph, parent = nil)
+      # @param filters {} A hash with other filters
+      def all(graph = Zuck.graph, parent = nil, filters = {})
         parent ||= parent_ad_account_fallback
         path = path_with_parent(parent)
 
         begin
           ret = []
           fields = _known_keys
-          graph_collection = graph.get_object(path, fields: fields.compact.join(','), limit: 500)
+          graph_collection = graph.get_object(path, filters.merge(fields: fields.compact.join(',')), limit: 500)
           loop do
             ret += Array(graph_collection)
             break if not graph_collection.paging or not graph_collection.paging['next']
