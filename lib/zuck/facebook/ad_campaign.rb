@@ -6,10 +6,8 @@ module Zuck
     # as well as undocumented keys returned by the Graph API
     known_keys :id,
                :account_id,
-               :objective,
                :name,
                :adgroups,
-               :campaign_group_status,
                :buying_type
 
     parent_object :ad_account, as: :account_id
