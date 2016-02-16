@@ -9,12 +9,10 @@ module Zuck
                :account_id,
                :conversion_specs,
                :campaign_id,
-               :campaign_group_id,
                :created_time,
                :failed_delivery_checks,
                :name,
                :tracking_specs,
-               :adgroup_status,
                :updated_time
                # app must be whitelisted to use view_tags
                # :view_tags
