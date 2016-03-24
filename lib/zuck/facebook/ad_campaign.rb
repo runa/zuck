@@ -7,8 +7,7 @@ module Zuck
     known_keys :id,
                :account_id,
                :name,
-               :adgroups,
-               :buying_type
+               :ads
 
     parent_object :ad_account, as: :account_id
     list_path     :adcampaign_groups

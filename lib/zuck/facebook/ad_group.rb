@@ -8,7 +8,7 @@ module Zuck
     known_keys :id,
                :account_id,
                :conversion_specs,
-               :campaign_id,
+               :ad_set_id,
                :created_time,
                :failed_delivery_checks,
                :name,
@@ -19,12 +19,12 @@ module Zuck
                # :view_tags
 
     parent_object :ad_campaign
-    list_path     :adgroups
+    list_path     :ads
     connections   :ad_creatives
 
     def self.create(graph, data, ad_set)
       path = ad_set.ad_account.path
-      data['campaign_id'] = ad_set.id
+      data[:adset_id] = ad_set.id
       super(graph, data, ad_set, path)
     end
 
