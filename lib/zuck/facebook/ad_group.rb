@@ -8,7 +8,7 @@ module Zuck
     known_keys :id,
                :account_id,
                :conversion_specs,
-               :ad_set_id,
+               :adset_id,
                :created_time,
                :failed_delivery_checks,
                :name,
