@@ -9,6 +9,7 @@ module Zuck
                :account_id,
                :conversion_specs,
                :adset_id,
+               :campaign_id,
                :created_time,
                :failed_delivery_checks,
                :name,
