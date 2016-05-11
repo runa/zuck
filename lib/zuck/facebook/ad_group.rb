@@ -15,6 +15,8 @@ module Zuck
                :name,
                :tracking_specs,
                :updated_time,
+               :configured_status,
+               :effective_status,
                :status
                # app must be whitelisted to use view_tags
                # :view_tags
