@@ -7,7 +7,17 @@ module Zuck
                :rule,
                :description,
                :opt_out_link,
-               :retention_days
+               :retention_days,
+               :account_id,
+               :data_source,
+               :approximate_count,
+               :delivery_status,
+               :operation_status,
+               :permission_for_actions,
+               :time_content_updated,
+               :time_created,
+               :time_updated
+
 
 
     parent_object :ad_account
