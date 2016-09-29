@@ -27,9 +27,9 @@ module Zuck
     def emails=(emails)
       emails = Array(emails)
       audience = emails.map{|email|
-        Digest::SHA256.hexdigest(email)
+        [Digest::SHA256.hexdigest(email)]
       }
-      add_users(audience, "EMAIL_SHA256")
+      add_users(audience, ["EMAIL"])
     end
 
     alias :<< :emails= 
