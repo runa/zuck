@@ -12,6 +12,7 @@ module Zuck
                :start_time,
                :updated_time,
                :created_time,
+               :targeting,
                :promoted_object
 
     parent_object :ad_account, as: :account_id
