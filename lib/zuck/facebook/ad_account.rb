@@ -4,8 +4,7 @@ module Zuck
 
     # Known keys as per
     # [fb docs](https://developers.facebook.com/docs/reference/ads-api/adaccount/)
-    known_keys :account_groups,
-               :account_id,
+    known_keys :account_id,
                :account_status,
                :age,
                :agency_client_declaration,
