@@ -3,8 +3,7 @@ module Zuck
 
     # Known keys as per
     # [fb docs](https://developers.facebook.com/docs/reference/ads-api/adaccount/)
-    known_keys :actor_id,
-               :body,
+    known_keys :body,
                :call_to_action_type,
                :image_crops,
                :image_file,
