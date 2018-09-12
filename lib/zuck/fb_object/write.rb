@@ -9,7 +9,7 @@ module Zuck
       self.class.raise_if_read_only
 
       # Tell facebook to return
-      data = @hash_delegator_hash.merge(redownload: 1)
+      data = @hash_delegator_hash
       data = data.stringify_keys
 
       # Don't post ids, because facebook doesn't like it
@@ -18,15 +18,7 @@ module Zuck
       # Update on facebook
       result = post(graph, path, data)
 
-      # The data is nested by name and id, e.g.
-      #
-      #     "campaigns" => { "12345" => "data" }
-      #
-      # Since we only put one at a time, we'll fetch this like that.
-      data = result["data"].values.first.values.first
-      known_data = data.keep_if{|k,v| known_keys.include?(k.to_sym) }
-
-      merge_data(known_data)
+      reload
       result["result"]
     end
 
@@ -47,7 +39,6 @@ module Zuck
         p = path || parent.path
 
         # We want facebook to return the data of the created object
-        data["redownload"] = 1
 
         # Create
         result = create_connection(graph, p, list_path, data)
@@ -72,7 +63,9 @@ module Zuck
         end
 
         # Return a new instance
-        new(graph, data, parent)
+        ret = new(graph, data, parent)
+        ret.reload if data["id"]
+        ret
       end
 
       def destroy(graph, id)
